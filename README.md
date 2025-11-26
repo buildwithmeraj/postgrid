@@ -1,36 +1,122 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# PostGrid — Modern Blogging Platform
 
-## Getting Started
+PostGrid is a full-stack blogging platform where writers can publish articles, explore categories, and track engagement. Powered by **Next.js**, **NextAuth**, **MongoDB**, and **DaisyUI** for a polished, responsive user experience.
 
-First, run the development server:
+---
+
+### Live Site: [https://postgrid-blog.vercel.app/](https://postgrid-blog.vercel.app/)
+
+### Backend Repository: [https://github.com/buildwithmeraj/postgrid-backend](https://github.com/buildwithmeraj/postgrid-backend)
+
+---
+
+## 🚀 Features
+
+- Authentication (Email/Password + Google Sign-in)
+- Create, edit, delete blog posts
+- Category-based browsing
+- View count tracking for posts
+- Responsive UI using **DaisyUI** + theming
+- Protected routes with NextAuth
+- Secure API communication with Axios interceptors
+
+---
+
+## 📦 Tech Stack
+
+| Layer          | Technology                                           |
+| -------------- | ---------------------------------------------------- |
+| Frontend       | Next.js 14 (App Router), React, DaisyUI, TailwindCSS |
+| Authentication | Next-Auth                                            |
+| Backend API    | MongoDB, Node.js/Express                             |
+| State/Data     | Axios + React Hooks                                  |
+| Deployment     | Vercel                                               |
+
+---
+
+## 🔧 Setup & Installation
+
+### ✅ Prerequisites
+
+- Node.js **18+**
+- MongoDB (Local or Cloud Atlas)
+- Google OAuth credentials (optional)
+- A properly configured `.env.local`
+
+---
+
+### 📥 Clone & Install
+
+```bash
+git clone https://github.com/yourname/postgrid.git
+cd postgrid
+npm install
+```
+
+### 🛠 Environment Variables
+
+Create .env.local in the root:
+
+```bash
+SITE_NAME="PostGrid"
+PAGE_TITLE="- PostGrid"
+
+NEXTAUTH_URL="http://localhost:3000"
+
+NEXT_PUBLIC_SERVER_URL="http://localhost:5000"
+BACKEND_URL="http://localhost:5000"
+
+MONGODB_URI="your_mongodb_connection_string_here"
+NEXTAUTH_SECRET="your_generated_secret_here"
+
+AUTH_GOOGLE_ID="your_google_client_id"
+AUTH_GOOGLE_SECRET="your_google_client_secret"
+
+NEXT_PUBLIC_IMGBB_API_KEY="your_imgbb_key"
+```
+
+(Replace all placeholder values!)
+
+### ▶️ Run the App
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit: http://localhost:3000
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### 🧭 Route Summary
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Route                | Type    | Description                  |
+| -------------------- | ------- | ---------------------------- |
+| `/`                  | Public  | Homepage with featured posts |
+| `/login`             | Public  | User login                   |
+| `/register`          | Public  | Create an account            |
+| `/posts`             | Public  | All posts (recent first)     |
+| `/posts/[id]`        | Public  | Single post — counts views   |
+| `/categories`        | Public  | List of all categories       |
+| `/categories/[slug]` | Public  | Posts by category            |
+| `/add-post`          | Private | Publish new blog post        |
+| `/edit-post/[id]`    | Private | Edit owned post              |
+| `/my-posts`          | Private | Manage user’s posts          |
+| `/profile`           | Private | Profile & settings           |
+| `/privacy`           | Public  | Privacy policy page          |
 
-## Learn More
+🔒 Private pages require authentication via NextAuth.
 
-To learn more about Next.js, take a look at the following resources:
+### 📜 Scripts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Command         | Purpose              |
+| --------------- | -------------------- |
+| `npm run dev`   | Start dev server     |
+| `npm run build` | Build Next.js app    |
+| `npm run start` | Run production build |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 🏁 Deployment
 
-## Deploy on Vercel
+Fully optimized for Vercel deployment.
+Just run:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+vercel
+```
