@@ -88,7 +88,7 @@ async function Navbar() {
                 </div>
               </div>
             ) : (
-              <HiUserCircle className="text-8xl text-primary/70 mx-auto" />
+              <HiUserCircle className="w-10 text-primary/70 mx-auto" />
             )}
             <ul
               tabIndex="-1"
