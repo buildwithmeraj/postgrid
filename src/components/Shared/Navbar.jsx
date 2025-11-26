@@ -8,6 +8,7 @@ import ThemeSwitcher from "./ThemeSwitcher";
 import "animate.css";
 import { IoMdAdd } from "react-icons/io";
 import { PiListHeartFill } from "react-icons/pi";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 async function Navbar() {
   const user = await getUser();
@@ -42,33 +43,29 @@ async function Navbar() {
   );
   return (
     <nav
-      className="navbar fixed top-0 left-0 z-50 w-full px-[4%] xl:px-[7%]
+      className="navbar fixed top-0 left-0 z-50 px-[4%] xl:px-[7%]
         bg-base-100/70 backdrop-blur-lg shadow-sm
         transition-all duration-300"
     >
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              {" "}
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />{" "}
-            </svg>
+            <GiHamburgerMenu className="text-lg" />
           </div>
-          <ul className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+          <ul className="menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow-xl text-lg z-50">
             {links}
           </ul>
         </div>
+        <div className="hidden lg:flex lg:flex-1">
+          <Link
+            className="text-xl animate__animated animate__infinite animate__slow	 animate__pulse"
+            href="/"
+          >
+            <Logo />
+          </Link>
+        </div>
+      </div>
+      <div className="navbar-center lg:hidden">
         <Link
           className="text-xl animate__animated animate__infinite animate__slow	 animate__pulse"
           href="/"
@@ -76,7 +73,8 @@ async function Navbar() {
           <Logo />
         </Link>
       </div>
-      <div className="navbar-center hidden lg:flex">
+
+      <div className="hidden lg:navbar-center lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
@@ -115,7 +113,7 @@ async function Navbar() {
             </ul>
           </div>
         ) : (
-          <Link href="/login" className="btn btn-primary">
+          <Link href="/login" className="btn btn-primary hidden lg:flex">
             <FaSignInAlt />
             Login
           </Link>

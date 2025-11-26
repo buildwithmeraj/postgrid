@@ -15,7 +15,7 @@ function Footer() {
           <Link href="/posts">Recent Posts</Link>
           <Link href="/privacy">Privacy</Link>
         </div>
-        <p className="footer-divider h-9 w-160"></p>
+        <p className="footer-divider h-9 w-96"></p>
         <p className="">
           Copyright © {new Date().getFullYear()} - All right reserved
         </p>
