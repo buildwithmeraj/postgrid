@@ -41,7 +41,7 @@ export default function SignIn() {
         toast.error("Invalid email or password");
       } else {
         toast.success("Login successful!");
-        location.reload();
+        setInterval(location.reload(), 2000);
       }
     } catch (error) {
       console.error("Login error:", error);

@@ -15,16 +15,16 @@ export default async function ProfilePage() {
       <div className="w-full max-w-sm bg-base-100 border border-base-300 rounded-2xl shadow-md p-6 text-center">
         <h1 className="mb-4">Profile</h1>
 
-        {user?.image ? (
-          <img
-            src={user.image}
-            alt="Profile"
-            className="w-28 h-28 rounded-full border-4 border-primary shadow-md mx-auto"
-            referrerPolicy="no-referrer"
-          />
-        ) : (
-          <HiUserCircle className="text-8xl text-primary/70 mx-auto" />
-        )}
+        <img
+          src={
+            user?.image
+              ? user?.image
+              : "https://i.ibb.co.com/4n2tvyLH/user-1.png"
+          }
+          alt="Profile"
+          className="w-28 h-28 rounded-full border-4 border-primary shadow-md mx-auto"
+          referrerPolicy="no-referrer"
+        />
 
         <h5 className="mt-4 text-lg font-semibold">{user?.name}</h5>
         <p className="text-sm">{user?.email}</p>
