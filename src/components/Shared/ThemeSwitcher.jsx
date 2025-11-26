@@ -17,7 +17,7 @@ export default function ThemeSwitcher() {
   };
 
   return (
-    <label className="swap swap-rotate btn btn-circle btn-active lg:ml-2">
+    <label className="swap swap-rotate btn btn-circle btn-active md:ml-2">
       <input
         type="checkbox"
         onChange={handleToggle}
