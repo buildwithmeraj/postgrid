@@ -186,6 +186,7 @@ export default function Register() {
                   onChange={handleInputChange}
                   placeholder="https://example.com/photo.jpg"
                   className="input input-bordered w-full"
+                  required
                   disabled={isLoading}
                 />
               </div>

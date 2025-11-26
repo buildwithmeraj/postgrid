@@ -9,6 +9,7 @@ import "animate.css";
 import { IoMdAdd } from "react-icons/io";
 import { PiListHeartFill } from "react-icons/pi";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { HiUserCircle } from "react-icons/hi";
 
 async function Navbar() {
   const user = await getUser();
@@ -80,11 +81,15 @@ async function Navbar() {
       <div className="navbar-end">
         {user ? (
           <div className="dropdown dropdown-center hidden md:flex">
-            <div tabIndex={0} role="button" className="avatar cursor-pointer">
-              <div className="w-10 rounded-full">
-                <img src={user?.image} />
+            {user?.image ? (
+              <div tabIndex={0} role="button" className="avatar cursor-pointer">
+                <div className="w-10 rounded-full">
+                  <img src={user?.image} />
+                </div>
               </div>
-            </div>
+            ) : (
+              <HiUserCircle className="text-8xl text-primary/70 mx-auto" />
+            )}
             <ul
               tabIndex="-1"
               className="dropdown-content menu bg-base-200 rounded-2xl z-1 w-52 mt-1"
