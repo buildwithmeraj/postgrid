@@ -1,20 +1,9 @@
-import { signOut } from "@/auth";
-import React from "react";
+import ProfilePage from "@/components/Pages/User/Profile";
 
-const page = () => {
-  return (
-    <div>
-      Profile
-      <form
-        action={async () => {
-          "use server";
-          await signOut();
-        }}
-      >
-        <button type="submit">Sign Out</button>
-      </form>
-    </div>
-  );
+export const metadata = {
+  title: `Profile ${process.env.PAGE_TITLE}`,
 };
 
-export default page;
+export default function Page() {
+  return <ProfilePage />;
+}

@@ -1,7 +1,45 @@
 import React from "react";
 import Logo from "../Utilities/Logo";
+import Link from "next/link";
+import LogoutButton from "./LogoutButton";
+import { getUser } from "./User";
+import { FaSignInAlt, FaUser } from "react-icons/fa";
+import ThemeSwitcher from "./ThemeSwitcher";
+import "animate.css";
+import { IoMdAdd } from "react-icons/io";
+import { PiListHeartFill } from "react-icons/pi";
 
-function Navbar() {
+async function Navbar() {
+  const user = await getUser();
+  const links = (
+    <>
+      <li>
+        <Link href="/" className="w-full">
+          Home
+        </Link>
+      </li>
+      <li>
+        <Link href="/categories" className="w-full">
+          Categories
+        </Link>
+      </li>
+      <li>
+        <Link href="/posts" className="w-full">
+          Recent Posts
+        </Link>
+      </li>
+      <li>
+        <Link href="/add-post" className="w-full">
+          Add Post
+        </Link>
+      </li>
+      <li>
+        <Link href="/privacy" className="w-full">
+          Privacy
+        </Link>
+      </li>
+    </>
+  );
   return (
     <nav
       className="navbar fixed top-0 left-0 z-50 w-full px-[4%] xl:px-[7%]
@@ -28,54 +66,61 @@ function Navbar() {
             </svg>
           </div>
           <ul className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-            <li>
-              <a>Item 1</a>
-            </li>
-            <li>
-              <a>Parent</a>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a>Item 3</a>
-            </li>
+            {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">
+        <Link
+          className="text-xl animate__animated animate__infinite animate__slow	 animate__pulse"
+          href="/"
+        >
           <Logo />
-        </a>
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
-          <li>
-            <a>Item 1</a>
-          </li>
-          <li>
-            <details>
-              <summary>Parent</summary>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
-            </details>
-          </li>
-          <li>
-            <a>Item 3</a>
-          </li>
-        </ul>
+        <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn btn-secondary">Button</a>
+        {user ? (
+          <div className="dropdown dropdown-center hidden md:flex">
+            <div tabIndex={0} role="button" className="avatar cursor-pointer">
+              <div className="w-10 rounded-full">
+                <img src={user?.image} />
+              </div>
+            </div>
+            <ul
+              tabIndex="-1"
+              className="dropdown-content menu bg-base-200 rounded-2xl z-1 w-52 mt-1"
+            >
+              <li className="border-b border-neutral/50 pb-0.5">
+                <Link href="/profile" className="w-full">
+                  <FaUser />
+                  Profile
+                </Link>
+              </li>
+              <li className="border-b border-neutral/50 py-1">
+                <Link href="/add-post" className="w-full">
+                  <IoMdAdd className="text-lg -mr-1" />
+                  Add Post
+                </Link>
+              </li>
+              <li className="border-b border-neutral/50 py-1">
+                <Link href="/my-posts" className="w-full">
+                  <PiListHeartFill className="text-xl -mr-1" />
+                  My Posts
+                </Link>
+              </li>
+              <li className="flex items-center justify-center text-center pt-0.5">
+                <LogoutButton className="text-center text-error font-semibold cursor-pointer" />
+              </li>
+            </ul>
+          </div>
+        ) : (
+          <Link href="/login" className="btn btn-primary">
+            <FaSignInAlt />
+            Login
+          </Link>
+        )}
+        <ThemeSwitcher />
       </div>
     </nav>
   );

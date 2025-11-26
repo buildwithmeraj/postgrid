@@ -2,6 +2,41 @@
 @plugin "daisyui";
 
 @plugin "daisyui/theme" {
+  name: "light";
+  default: false;
+  prefersdark: false;
+  color-scheme: "light";
+  --color-base-100: oklch(95.127% 0.007 260.731);
+  --color-base-200: oklch(93.299% 0.01 261.788);
+  --color-base-300: oklch(89.925% 0.016 262.749);
+  --color-base-content: oklch(32.437% 0.022 264.182);
+  --color-primary: oklch(71% 0.203 305.504);
+  --color-primary-content: oklch(96% 0.003 264.542);
+  --color-secondary: oklch(75% 0.183 55.934);
+  --color-secondary-content: oklch(96% 0.007 247.896);
+  --color-accent: oklch(78% 0.115 274.713);
+  --color-accent-content: oklch(96% 0.007 247.896);
+  --color-neutral: oklch(44% 0.043 257.281);
+  --color-neutral-content: oklch(96% 0.007 247.896);
+  --color-info: oklch(68% 0.169 237.323);
+  --color-info-content: oklch(96% 0.007 247.896);
+  --color-success: oklch(76% 0.177 163.223);
+  --color-success-content: oklch(96% 0.007 247.896);
+  --color-warning: oklch(86.163% 0.142 94.818);
+  --color-warning-content: oklch(17.232% 0.028 94.818);
+  --color-error: oklch(64% 0.246 16.439);
+  --color-error-content: oklch(96% 0.007 247.896);
+  --radius-selector: 1rem;
+  --radius-field: 0.25rem;
+  --radius-box: 0.5rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}
+
+@plugin "daisyui/theme" {
   name: "dark";
   default: false;
   prefersdark: true;
@@ -61,6 +96,10 @@ h2 {
 
 h1 {
   @apply text-3xl font-bold text-center;
+}
+
+h1 {
+  @apply text-3xl font-bold;
 }
 
 .swiper {

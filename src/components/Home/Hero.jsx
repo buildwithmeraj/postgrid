@@ -1,7 +1,11 @@
 "use client";
 import React from "react";
 import { Typewriter } from "react-simple-typewriter";
-import { BsLightning, BsLightningFill } from "react-icons/bs";
+import { BsLightningFill } from "react-icons/bs";
+import { FaMagic } from "react-icons/fa";
+
+import "animate.css";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -36,7 +40,13 @@ const Hero = () => {
               />
             </h3>
           </div>
-          <button className="btn btn-primary">Get Started</button>
+          <Link
+            className="btn btn-primary animate__animated animate__heartBeat animate__infinite animate__slower"
+            href="/add-post"
+          >
+            <FaMagic />
+            Get Started
+          </Link>
         </div>
       </div>
     </div>
