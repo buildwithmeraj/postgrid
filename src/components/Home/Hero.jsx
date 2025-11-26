@@ -12,15 +12,18 @@ const Hero = () => {
     <div className="hero hero-bg min-h-lg bg-base-200/50 backdrop-blur-lg py-14 rounded-xl">
       <div className="hero-content text-center">
         <div className="max-w-md">
-          <h1 className="text-5xl font-bold flex items-center gap-1 justify-center">
+          <h4 className="text-2xl md:text-3xl font-bold flex items-center gap-1 justify-center">
             Welcome to
             <div className="text-[#BC9AF4]">
               Post<span className="text-[#FD8F01]">Grid</span>
             </div>
-          </h1>
+          </h4>
           <div className="py-6">
-            <h3 className="text-lg flex items-center gap-1">
-              <BsLightningFill size={30} className="mt-1 text-secondary" />
+            <h4 className="text-lg font-semibold">
+              <BsLightningFill
+                size={30}
+                className="mt-0.5 text-secondary inline mr-1.5"
+              />
               <Typewriter
                 className="text-accent"
                 cursor
@@ -38,7 +41,7 @@ const Hero = () => {
                   "A platform built for thinkers and storytellers.",
                 ]}
               />
-            </h3>
+            </h4>
           </div>
           <Link
             className="btn btn-primary animate__animated animate__heartBeat animate__infinite animate__slower"
