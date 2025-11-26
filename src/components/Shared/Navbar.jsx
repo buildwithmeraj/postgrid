@@ -81,15 +81,18 @@ async function Navbar() {
       <div className="navbar-end">
         {user ? (
           <div className="dropdown dropdown-center hidden md:flex">
-            {user?.image ? (
-              <div tabIndex={0} role="button" className="avatar cursor-pointer">
-                <div className="w-10 rounded-full">
-                  <img src={user?.image} />
-                </div>
+            <div tabIndex={0} role="button" className="avatar cursor-pointer">
+              <div className="w-10 rounded-full">
+                <img
+                  src={
+                    user?.image
+                      ? user?.image
+                      : "https://i.ibb.co.com/4n2tvyLH/user-1.png"
+                  }
+                />
               </div>
-            ) : (
-              <HiUserCircle className="w-10 text-primary/70 mx-auto" />
-            )}
+            </div>
+
             <ul
               tabIndex="-1"
               className="dropdown-content menu bg-base-200 rounded-2xl z-1 w-52 mt-1"

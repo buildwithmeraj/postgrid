@@ -41,7 +41,7 @@ export default function SignIn() {
         toast.error("Invalid email or password");
       } else {
         toast.success("Login successful!");
-        router.push("/profile");
+        location.reload();
       }
     } catch (error) {
       console.error("Login error:", error);
