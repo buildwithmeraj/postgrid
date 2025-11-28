@@ -88,7 +88,7 @@ export default function PostsPage({ posts = [], filter = false }) {
             {filteredPosts.map((post) => (
               <div
                 key={post._id}
-                className="card shadow-lg border border-primary/30 transition-all duration-300 hover:-translate-y-1"
+                className="card shadow-lg bg-base-100/80 border border-primary/30 transition-all duration-300 hover:-translate-y-1"
               >
                 <figure className="relative w-full h-50">
                   <Link href={`/posts/${post._id}`}>

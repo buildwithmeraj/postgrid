@@ -80,7 +80,7 @@ async function Navbar() {
       </div>
       <div className="navbar-end">
         {user ? (
-          <div className="dropdown dropdown-center">
+          <div className="dropdown dropdown-centersu">
             <div tabIndex={0} role="button" className="avatar cursor-pointer">
               <div className="w-10 rounded-full">
                 <img
